@@ -1,0 +1,6 @@
+Table	 Attr
+
+contact
+		: id (auto increment, primary)
+		: name (text)
+		: phone (text)

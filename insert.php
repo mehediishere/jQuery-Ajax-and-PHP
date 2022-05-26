@@ -11,6 +11,7 @@
 		<input id="name" type="text" placeholder="Name">
 		<input id="phone" type="text" placeholder="Phone">
 		<button id="save" type="button">Save</button>
+		<button id="saveContact" type="button">Save Contact</button>
 	</form>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -25,13 +26,31 @@
 				$.ajax({
 					url: "actions/insert.php",
 					type: "POST",
-					data: {nameK:name, phoneK:phone},
+					data: {nameK:name, phoneK:phone, btn1:"btn"},
 					success: function(data){
 						if(data == 1){	
 							console.log("Ok!");
 							$("#userForm").trigger("reset");
 						}else{
 							console.log("Something went wrong!");
+						}
+					}
+				});
+			});
+
+			$( "#saveContact" ).click(function() {
+				var phone = $("#phone").val();
+
+				$.ajax({
+					url: "actions/insert.php",
+					type: "POST",
+					data: {phoneK:phone, btn2:"btn"},
+					success: function(data){
+						if(data == 1){	
+							console.log("Phone Ok!");
+							$("#userForm").trigger("reset");
+						}else{
+							console.log("Phone went wrong!");
 						}
 					}
 				});
