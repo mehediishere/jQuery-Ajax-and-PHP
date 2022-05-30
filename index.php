@@ -12,11 +12,9 @@
 </head>
 <body>
     <?php
-        $res = mysqli_fetch_assoc($conn->query("SELECT * FROM users WHERE `id`='22'"));
+        $res = mysqli_fetch_assoc($conn->query("SELECT * FROM user WHERE `id`='1'"));
     ?>
-    <input type="text" name="name" value="<?php echo $res['firstName']; ?>">
-    <br>
-    <input type="text" value="<?php echo $res['firstName'];?>" class="save" data-ser="<?php echo $res['id'];?>" data-table="<?php echo "users";?>" data-col="<?php echo "firstName";?>" />
+    <input type="text" value="<?php echo $res['firstName'];?>" class="save" data-ser="<?php echo $res['id'];?>" data-table="<?php echo "user";?>" data-col="<?php echo "firstName";?>">
     <span style="display:none;"><?php echo $res['name'];?></span>
 
 
@@ -31,8 +29,8 @@
                 var table=$(this).attr("data-table");
                 var col=$(this).attr("data-col");
                 
-                console.log(val);
                 console.log(ser);
+                console.log(val);
                 console.log(table);
                 console.log(col);
                 
